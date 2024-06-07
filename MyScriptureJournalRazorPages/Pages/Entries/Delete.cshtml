@@ -1,0 +1,32 @@
+﻿@page
+@model MyScriptureJournalRazorPages.Pages.Entries.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+    <h1 class="mt-4">@ViewData["Title"]</h1>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Entry</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">Scripture Reference</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Entry.ScriptureReference)</dd>
+
+            <dt class="col-sm-3">Entry Date</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Entry.EntryDate)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Entry.Notes)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Entry.Notes)</dd>
+        </dl>
+
+        <form method="post">
+            <input type="hidden" asp-for="Entry.Id" />
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a asp-page="./Index" class="btn btn-secondary ms-2">Back to List</a>
+        </form>
+    </div>
+</div>

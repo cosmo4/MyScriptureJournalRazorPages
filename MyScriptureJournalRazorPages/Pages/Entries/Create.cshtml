@@ -1,0 +1,45 @@
+﻿@page
+@model MyScriptureJournalRazorPages.Pages.Entries.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <h1 class="mt-4">@ViewData["Title"]</h1>
+
+    <h4>Entry</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Entry.ScriptureReference" class="form-label">Scripture Reference</label>
+                    <input asp-for="Entry.ScriptureReference" class="form-control" />
+                    <span asp-validation-for="Entry.ScriptureReference" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Entry.EntryDate" class="form-label">Entry Date</label>
+                    <input asp-for="Entry.EntryDate" class="form-control" />
+                    <span asp-validation-for="Entry.EntryDate" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Entry.Notes" class="form-label">Notes</label>
+                    <textarea asp-for="Entry.Notes" class="form-control"></textarea>
+                    <span asp-validation-for="Entry.Notes" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
